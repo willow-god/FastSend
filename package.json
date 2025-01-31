@@ -31,5 +31,6 @@
     "@types/crypto-js": "^4.2.2",
     "@types/wicg-file-system-access": "^2023.10.5",
     "prettier": "^3.3.2"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

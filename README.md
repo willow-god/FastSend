@@ -1,7 +1,7 @@
 <h1 align="center">FastSend 文件快传 🚀</h1>
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.5.7-blue.svg?style=flat-square" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.5.8-blue.svg?style=flat-square" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" />
   </a>
@@ -50,6 +50,8 @@ yarn build
 # 启动服务
 node .output/server/index.mjs
 ```
+
+**注意：** 目录传输需要`HTTPS`以及浏览器支持，一般新版本的桌面浏览器都支持
 
 ## 🐳 Docker和Docker Compose
 

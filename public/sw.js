@@ -35,9 +35,10 @@ self.addEventListener('install', (e) => {
 })
 
 self.addEventListener('activate', (e) => {
-  console.log('Activate', 'v0.5.7')
+  console.log('Activate')
 })
 
 self.addEventListener('fetch', (e) => {
-  e.respondWith(getResponseByCache('main', e.request))
+  // e.respondWith(getResponseByCache('main', e.request))
+  e.respondWith(fetch(e.request))
 })

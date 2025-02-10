@@ -202,6 +202,7 @@ async function handleObjData(obj: any) {
       })
       if (saveFileFH) {
         // 删除传输失败的文件
+        // @ts-ignore
         saveFileFH.remove()
       }
       dispose()
@@ -241,7 +242,7 @@ async function handleObjData(obj: any) {
       })
     } else if (obj.data === 404) {
       // 找不到对应的文件
-      toast.add({ severity: 'warn', summary: 'Warn', detail: '文件找不到', life: 3e3 })
+      toast.add({ severity: 'warn', summary: 'Warn', detail: '文件找不到', life: 5e3 })
     }
     // toast.add({ severity: 'warn', summary: 'Warn', detail: obj.data, life: 3e3 })
   }
@@ -268,7 +269,7 @@ function initPDC() {
       status.value.warn.msg = '连接断开，传输失败'
     }
     dispose()
-    toast.add({ severity: 'warn', summary: 'Warn', detail: 'Disconnected', life: 5000 })
+    toast.add({ severity: 'warn', summary: 'Warn', detail: 'Disconnected', life: 5e3 })
   }
   pdc.onError = (err) => {
     console.error(err)
@@ -279,7 +280,7 @@ function initPDC() {
       status.value.error.msg = err + ''
     }
     dispose()
-    toast.add({ severity: 'error', summary: 'Error', detail: err + '', life: 5000 })
+    toast.add({ severity: 'error', summary: 'Error', detail: err + '', life: 5e3 })
   }
   pdc.onConnected = () => {
     status.value.isConnectPeer = true
@@ -318,13 +319,14 @@ async function calcPeerFileHash(key: string) {
 
 // 选择要接收同步的目录
 function selectSyncDir() {
+  // @ts-ignore
   showDirectoryPicker()
     .then((dh: FileSystemDirectoryHandle) => {
       syncDirStatus.value.isWaitingSelectDir = false
       syncTargetDH = dh
       return dealFilesFromHandler(dh)
     })
-    .then((val: any) => fileMapRemoveRoot(val))
+    .then((val: any) => fileMapWithoutRoot(val))
     .then(async (localFileMap: any) => {
       syncDirStatus.value.isDiffing = true
       // 开始对比目录结构
@@ -380,7 +382,7 @@ async function doReceive() {
     // 如果传输目录，则至少要选择一个文件
     waitReceiveFileList.value = Object.keys(selectedKeys.value).filter((n) => !/\/$/.test(n))
     if (waitReceiveFileList.value.length === 0) {
-      toast.add({ severity: 'warn', summary: 'Warn', detail: '请至少选择一个文件', life: 3e3 })
+      toast.add({ severity: 'warn', summary: 'Warn', detail: '请至少选择一个文件', life: 5e3 })
       status.value.isReceiving = false
       return
     }
@@ -395,7 +397,7 @@ async function doReceive() {
       syncDirStatus.value.waitUpdateList.length === 0 ||
       syncDirStatus.value.waitDeleteList.length === 0
     ) {
-      toast.add({ severity: 'warn', summary: 'Warn', detail: '请至少选择一个文件', life: 3e3 })
+      toast.add({ severity: 'warn', summary: 'Warn', detail: '请至少选择一个文件', life: 5e3 })
       status.value.isReceiving = false
       return
     }
@@ -414,6 +416,7 @@ async function doReceive() {
     if (peerFilesInfo.value.type === 'transFile') {
       // 传输单个文件
       if (isModernFileAPISupport.value) {
+        // @ts-ignore
         saveFileFH = await showSaveFilePicker({
           startIn: 'downloads',
           suggestedName: curFile.value.name
@@ -426,6 +429,7 @@ async function doReceive() {
       await requestFile(curFile.value.name)
     } else if (peerFilesInfo.value.type === 'transDir') {
       // 传输目录
+      // @ts-ignore
       rootDirDH = await showDirectoryPicker()
       // 启动传输速度计算定时器
       startTime.value = Date.now()

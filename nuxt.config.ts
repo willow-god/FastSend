@@ -76,7 +76,7 @@ export default defineNuxtConfig({
     strategies: 'injectManifest',
     srcDir: 'public',
     filename: 'sw.js',
-    registerType: 'autoUpdate',
+    registerType: 'prompt',
 
     // workbox: {
     //   runtimeCaching: [

@@ -12,6 +12,7 @@ async function dealFilesFromHandlerLoop(
       file: file
     }
   } else if (fh.kind === 'directory') {
+    // @ts-ignore
     for await (const fh1 of fh.entries()) {
       await dealFilesFromHandlerLoop(fh1[1], [...paths, fh1[0]], result)
     }
@@ -80,6 +81,7 @@ export async function selectDir() {
     input.type = 'file'
     // input.multiple = true
     input.webkitdirectory = true
+    // @ts-ignore
     input.directory = true
     input.onchange = () => {
       input.onchange = null
@@ -149,7 +151,7 @@ export async function selectFile(accept?: string): Promise<File> {
  * 扁平文件树去根
  * @param fileMap
  */
-export function fileMapRemoveRoot(fileMap: any) {
+export function fileMapWithoutRoot(fileMap: any) {
   const res: any = {}
   for (let k in fileMap) {
     const fileInfo = fileMap[k]

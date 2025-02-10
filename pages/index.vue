@@ -143,7 +143,7 @@ function fileDrop(e: DragEvent) {
           severity: 'warn',
           summary: 'Warn',
           detail: t('hint.noSupportFolderDrag'),
-          life: 3e3
+          life: 5e3
         })
       }
     }

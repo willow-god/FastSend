@@ -79,7 +79,7 @@ async function confirmUser(isTrust: boolean) {
     } else {
       filesInfo.value.root = 'Unknown'
     }
-    filesInfo.value.fileMap = fileMapRemoveRoot(filesInfo.value.fileMap)
+    filesInfo.value.fileMap = fileMapWithoutRoot(filesInfo.value.fileMap)
   }
   await pdc?.sendData(JSON.stringify({ type: 'files', data: filesInfo.value }))
 }
@@ -187,7 +187,7 @@ function initPDC() {
   pdc.onDispose = () => {
     status.value.isConnectPeer = false
     dispose()
-    toast.add({ severity: 'warn', summary: 'Warn', detail: 'Disconnected', life: 5000 })
+    toast.add({ severity: 'warn', summary: 'Warn', detail: 'Disconnected', life: 5e3 })
     if (!status.value.isDone && status.value.warn.code === 0) {
       // 传输未完成，连接断开
       status.value.warn.code = -10
@@ -219,7 +219,7 @@ async function copyLink() {
     severity: 'success',
     summary: 'Success',
     detail: 'Code copied successfully',
-    life: 2e3
+    life: 3e3
   })
 }
 
@@ -269,7 +269,7 @@ onMounted(() => {
       // -1 初始化连接码失败，稍后再试
       status.value.error.code = data.data
       status.value.isWaitingConnect = false
-      toast.add({ severity: 'error', summary: 'Error', detail: data.msg })
+      toast.add({ severity: 'error', summary: 'Error', detail: data.msg, life: 5e3 })
       console.warn(data.msg)
     }
   }
@@ -279,7 +279,12 @@ onMounted(() => {
       // 连接信令服务器失败
       status.value.error.code = -5
       status.value.error.msg = 'Connect sign server error'
-      toast.add({ severity: 'error', summary: 'Error', detail: 'Connect sign server error' })
+      toast.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Connect sign server error',
+        life: 5e3
+      })
     } else if (status.value.isWaitingConnect) {
       // 等待接收端连接超时
       status.value.error.code = -10

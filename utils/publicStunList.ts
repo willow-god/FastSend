@@ -271,6 +271,10 @@ export const pubStunList = [
   'stun.zoiper.com:3478'
 ]
 
-export const pubIceServers = pubStunList.map((i) => ({
-  urls: 'stun:' + i
-}))
+export const pubTurnList = []
+
+export const pubIceServers: RTCIceServer[] = pubStunList
+  .map((i) => ({
+    urls: 'stun:' + i
+  }))
+  .concat(pubTurnList)

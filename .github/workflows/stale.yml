@@ -1,0 +1,59 @@
+# YAML
+name: 过时问题管理
+
+on:
+  schedule:
+    # 每三天的世界协调时下午 16:00 运行（对应北京时间凌晨 0:00）
+    - cron: '0 16 */3 * *'
+  # 允许被手动触发
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  # 此处需要额外的权限以操作 Issues 和 PRs
+  issues: write
+  pull-requests: write
+
+jobs:
+  manage_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 关闭过期的 Issues 和 PRs
+        uses: actions/stale@v9.1.0
+        with:
+          # 30 天未活动的 Issues / PRs 将被标记为过时
+          days-before-stale: 30
+          # 14 天后过时的 Issues / PRs 将被关闭
+          days-before-close: 14
+          stale-issue-message: |
+            > [!WARNING]
+            >
+            > 您的 Issue 已经过期，我们将在 14 天后以「无计划」为由自动关闭。
+          stale-pr-message: |
+            > [!WARNING]
+            >
+            > 您的 PR 已经过期，我们将在 14 天后自动将其拒绝并关闭。
+          close-issue-message: |
+            > [!CAUTION]
+            >
+            > 您的 Issue 已经过期，我们已经自动关闭了它。
+            >
+            > 如果您仍然遇到此问题，请在此 Issue 下方留言，我们将尽快回复并可能重新开启它。
+          close-pr-message: |
+            > [!CAUTION]
+            >
+            > 您的 PR 已经过期，我们已经自动关闭了它。
+            >
+            > 如果您仍然希望合并此 PR ，请在此 PR 下方留言，我们将尽快回复并可能重新开启它。
+          # 过期的 Issues 和 PRs 会被添加以下标签
+          stale-issue-label: No-Recent-Activity
+          stale-pr-label: No-Recent-Activity
+          # 以下标签的 Issue 和 PRs 不会被关闭
+          exempt-issue-labels: In-Progress
+          exempt-pr-labels: In-Progress
+          # 当 Issues 和 PRs 重新恢复活跃状态时，自动移除以下标签
+          labels-to-remove-when-unstale: No-Recent-Activity
+          # 按照 Issues 和 PRs 的创建时间升序排序，优先处理旧的 Issues 和 PRs
+          ascending: true
+          # 忽略处于草稿状态的 PRs
+          exempt-draft-pr: true

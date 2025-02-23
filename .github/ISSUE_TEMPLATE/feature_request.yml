@@ -10,7 +10,7 @@ body:
   - type: checkboxes
     id: feature_type
     attributes:
-      label: "### 前置条件"
+      label: "前置条件"
       description: "请确认您已经完成了以下操作"
       options:
         - label: "我已经查阅了 README 文档，但它提到我需要的功能"
@@ -23,28 +23,28 @@ body:
   - type: textarea
     id: feature_description
     attributes:
-      label: "### 功能描述"
+      label: "功能描述"
       description: "请详细描述您希望添加的功能"
     validations:
       required: true
   - type: textarea
     id: feature_reason
     attributes:
-      label: "### 功能原因"
+      label: "功能原因"
       description: "为什么你认为这个功能对项目有益"
     validations:
       required: true
   - type: textarea
     id: feature_reproduce
     attributes:
-      label: "### 目标效果"
+      label: "目标效果"
       description: "你希望这个功能实现后，会有什么效果"
     validations:
       required: true
   - type: textarea
     id: feature_plan
     attributes:
-      label: "### 实现方案"
+      label: "实现方案"
       description: "你希望如何实现这个功能，有什么脑洞大开的想法"
     validations:
       required: false

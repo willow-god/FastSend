@@ -36,8 +36,8 @@ export default defineNuxtConfig({
     vueI18n: './i18n.config.ts',
     baseUrl: 'https://fastsend.ing',
     locales: [
-      { code: 'en', iso: 'en-US' },
-      { code: 'zh', iso: 'zh-CN' }
+      { code: 'en', language: 'en-US' },
+      { code: 'zh', language: 'zh-CN' }
     ],
     defaultLocale: 'en',
     detectBrowserLanguage: {

@@ -2,16 +2,16 @@
 import path from 'path'
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/main.css'],
+  css: ['@/assets/main.css'],
 
   modules: [
-    '@nuxtjs/seo',
-    '@nuxtjs/i18n',
-    '@vite-pwa/nuxt',
-    '@primevue/nuxt-module',
     '@nuxtjs/color-mode',
+    '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
-    'nuxt-icon'
+    '@nuxtjs/seo',
+    '@nuxt/icon',
+    '@vite-pwa/nuxt',
+    '@primevue/nuxt-module'
   ],
 
   app: {
@@ -19,6 +19,23 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0',
       link: [{ rel: 'icon', href: '/favicon.webp' }]
+    }
+  },
+
+  i18n: {
+    baseUrl: 'https://fastsend.ing',
+    locales: [
+      { code: 'en', language: 'en-US' },
+      { code: 'zh', language: 'zh-CN' }
+    ],
+    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    },
+    bundle: {
+      optimizeTranslationDirective: false
     }
   },
 
@@ -30,21 +47,6 @@ export default defineNuxtConfig({
     description:
       'A tool station based on WebRTC to achieve point-to-point fast directory synchronization and file transfer'
     // defaultLocale: 'zh'
-  },
-
-  i18n: {
-    vueI18n: './i18n.config.ts',
-    baseUrl: 'https://fastsend.ing',
-    locales: [
-      { code: 'en', language: 'en-US' },
-      { code: 'zh', language: 'zh-CN' }
-    ],
-    defaultLocale: 'en',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
   },
 
   ogImage: {

@@ -11,26 +11,26 @@
   },
   "dependencies": {
     "@isaacs/ttlcache": "^1.4.1",
-    "@nuxtjs/i18n": "^8.3.1",
-    "@nuxtjs/seo": "^2.0.0-rc.10",
-    "@types/qrcode": "^1.5.5",
     "@vite-pwa/nuxt": "^0.8.0",
     "crypto-js": "^4.2.0",
-    "nuxt": "^3.12.1",
-    "nuxt-icon": "^0.6.10",
+    "nuxt": "^3.16.1",
     "primevue": "^4.0.4",
     "qrcode": "^1.5.3",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
     "webrtc-adapter": "^9.0.1"
   },
   "devDependencies": {
-    "@nuxtjs/color-mode": "^3.4.1",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/tailwindcss": "^6.12.0",
+    "@nuxtjs/i18n": "^9.4.0",
+    "@nuxtjs/seo": "^3.0.1",
+    "@nuxt/icon": "^1.11.0",
     "@primevue/nuxt-module": "^4.0.4",
     "@types/crypto-js": "^4.2.2",
+    "@types/qrcode": "^1.5.5",
     "@types/wicg-file-system-access": "^2023.10.5",
-    "prettier": "^3.3.2"
+    "prettier": "^3.5.3"
   },
   "packageManager": "yarn@1.22.22"
 }

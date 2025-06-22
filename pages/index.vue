@@ -197,7 +197,7 @@ onMounted(() => {
       class="fixed top-0 left-0 right-0 bottom-0 inset-0 -z-50 h-full w-full bg-white dark:bg-zinc-950 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#25272b_1px,transparent_1px)] [background-size:16px_16px]"
     ></div>
     <div class="py-6 px-8 text-center">
-      <h1 class="md:text-6xl text-5xl tracking-wider font-serif">Fast Send</h1>
+      <h1 class="md:text-6xl text-5xl tracking-wider font-serif">LiuShen Send</h1>
       <p
         class="mt-4 leading-6 tracking-widest text-sm md:text-base text-gray-600 dark:text-gray-200"
       >

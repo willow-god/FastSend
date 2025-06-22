@@ -50,7 +50,7 @@ body:
     id: dev_environment
     attributes:
       label: "环境信息"
-      description: "请详细描述你使用的 FastSend 时的本地开发环境信息和网络状态"
+      description: "请详细描述你使用的 LiuShen Send 时的本地开发环境信息和网络状态"
       value: |
         - 操作系统：Windows 11 专业工作站 24H2
         - Nodejs 版本：v23.8.0

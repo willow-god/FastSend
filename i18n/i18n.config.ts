@@ -70,7 +70,7 @@ export default defineI18nConfig(() => ({
     },
     zh: {
       welcome: '欢迎',
-      description: '点对点快速传输文件和目录',
+      description: '清羽飞扬自建点对点快速传输文件和目录',
       home: '主页',
       sender: '发送',
       recipient: '接收',

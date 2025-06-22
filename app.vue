@@ -2,11 +2,11 @@
 useSeoMeta({
   ogTitle: 'Fast Send',
   ogType: 'website',
-  ogImage: 'https://fastsend.ing/ogImg.webp',
+  ogImage: 'https://send.liushen.fun/ogImg.webp',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Fast Send',
   twitterDescription: 'Fast peer-to-peer file and directory transfers',
-  twitterImage: 'https://fastsend.ing/ogImg.webp',
+  twitterImage: 'https://send.liushen.fun/ogImg.webp',
   twitterSite: '@ShouChen_',
   twitterCreator: '@ShouChen_'
 })

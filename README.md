@@ -1,4 +1,4 @@
-<h1 align="center">FastSend 文件快传 🚀</h1>
+<h1 align="center">LiuShen Send 文件快传 🚀</h1>
 
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.5.9-blue.svg?style=flat-square" />
@@ -13,9 +13,9 @@
 
 ## 📖 项目介绍
 
-FastSend 是一个基于 WebRTC 技术的点对点文件传输工具，支持快速的目录同步和文件传输。通过浏览器即可实现安全、高效的文件共享。
+LiuShen Send 是一个基于 WebRTC 技术的点对点文件传输工具，支持快速的目录同步和文件传输。通过浏览器即可实现安全、高效的文件共享。
 
-🌐 在线体验：[fastsend.ing](https://fastsend.ing)
+🌐 在线体验：[send.liushen.fun](https://send.liushen.fun)
 
 ## ✨ 特性
 
@@ -58,8 +58,8 @@ node .output/server/index.mjs
 ### Docker 构建
 
 ```bash
-docker build -t fastsend .
-docker run -d --name fastsend -p 3000:3000 fastsend
+docker build -t LiuShen Send .
+docker run -d --name LiuShen Send -p 3000:3000 LiuShen Send
 ```
 
 ### Docker Compose
@@ -100,10 +100,10 @@ docker-compose up -d
 
 ---
 
-<a href="https://star-history.com/#ShouChenICU/Fastsend&Date">
+<a href="https://star-history.com/#ShouChenICU/LiuShen Send&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ShouChenICU/Fastsend&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ShouChenICU/Fastsend&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ShouChenICU/Fastsend&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ShouChenICU/LiuShen Send&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ShouChenICU/LiuShen Send&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ShouChenICU/LiuShen Send&type=Date" />
  </picture>
 </a>
